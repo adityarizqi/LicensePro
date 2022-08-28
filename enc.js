@@ -11,9 +11,18 @@ var const_bl = "";
 var const_api = "";
 var const_sup = "";
 if (
-  window.localStorage.getItem("res_") === null ||
-  !window.localStorage.getItem("uscode") === null
+  window.localStorage.getItem("res_") !== null &&
+  window.localStorage.getItem("uscode") !== null
 ) {
+  setTimeout(function () {
+    parContent();
+  }, 5);
+  parNet(false);
+}else{
+  parNet(true);
+}
+
+function parNet(fr){
   $.ajax({
     url: atob(pi),
     type: "GET",
@@ -25,20 +34,20 @@ if (
         type: "POST",
         data: {},
         success: function (result) {
+          console.log(result)
           window.localStorage.setItem("res_", JSON.stringify(result));
-          parContent();
+          if(fr == true){
+            parContent();
+          }
         },
       });
     },
     error: function (response) {
-      kill();
+      parKill();
     },
   });
-} else {
-  setTimeout(function () {
-    parContent();
-  }, 5);
 }
+
 function parContent() {
   var uscode = window.localStorage.getItem("uscode");
   var host = window.location.host;
@@ -72,16 +81,16 @@ function parContent() {
     }
   }
   if (valid == false) {
-    kill();
+    parKill();
   }
 }
-function replaceContent(NC) {
+function parDoc(NC) {
   document.open();
   document.write(NC);
   document.close();
 }
-function kill() {
-  replaceContent(
+function parKill() {
+  parDoc(
     html != null
       ? html
       : atob(
