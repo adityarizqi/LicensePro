@@ -1,7 +1,16 @@
 /*btoa for enc and atob for decy*/
-var enc =
-  "aHR0cHM6Ly9wcml2YXRlLWRhMjQ0Yi1teWxpc2VuY2UuYXBpYXJ5LW1vY2suY29tL2xpc2VuY2U=";
-var pi = "L2FwaS90b2tlbl9hY2Nlc3M=";
+var at = "YXBwLXRva2Vu";
+
+if (
+  document.querySelector('meta[name="' + atob("YXBwLXRva2Vu") + '"]') !== null
+) {
+  at = document.querySelector(
+    'meta[name="' + atob("YXBwLXRva2Vu") + '"]'
+  ).content;
+}
+
+var enc = "aHR0cHM6Ly9wcml2YXRlLWRhMjQ0Yi1teWxpc2VuY2UuYXBpYXJ5LW1vY2suY29tL2xpc2VuY2U=";
+
 var valid = false;
 var html = null;
 var const_t = "";
@@ -10,6 +19,7 @@ var const_st = "";
 var const_bl = "";
 var const_api = "";
 var const_sup = "";
+
 if (
   window.localStorage.getItem("res_") !== null &&
   window.localStorage.getItem("uscode") !== null
@@ -18,29 +28,21 @@ if (
     parContent();
   }, 5);
   parNet(false);
-}else{
+} else {
   parNet(true);
 }
 
-function parNet(fr){
+function parNet(fr) {
+  window.localStorage.setItem("uscode", at);
   $.ajax({
-    url: atob(pi),
-    type: "GET",
+    url: atob(enc),
+    type: "POST",
     data: {},
-    success: function (response) {
-      window.localStorage.setItem("uscode", response);
-      $.ajax({
-        url: atob(enc),
-        type: "POST",
-        data: {},
-        success: function (result) {
-          console.log(result)
-          window.localStorage.setItem("res_", JSON.stringify(result));
-          if(fr == true){
-            parContent();
-          }
-        },
-      });
+    success: function (result) {
+      window.localStorage.setItem("res_", JSON.stringify(result));
+      if (fr == true) {
+        parContent();
+      }
     },
     error: function (response) {
       parKill();
