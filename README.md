@@ -4,37 +4,37 @@ Built with JavaScript and using jQuery
 
 ## Usage
 
-- Set your API on <a href="https://apiary.io" target="_blank">apiary.io</a>
+- Make your API on <a href="https://apiary.io" target="_blank">apiary.io</a> (example) you can use your own server
 - Make API and add this following params on your response (POST)
 
-```
+```json
   {
     "const_t": "Invalid",
     "const_st": "Purchase Code or Unauthorized Domain",
-    "const_bl": "Blocked by testing.id",
+    "const_bl": "Blocked by <YOUR_DOMAIN>",
     "const_sup": "contact support",
-    "const_api": "https://api.whatsapp.com/send/?phone=621234567891",
+    "const_api": "https://api.whatsapp.com/send/?phone=<YOUR_PHONE_NUMBER>",
     "const_font": "https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Sedgwick+Ave+Display",
     "lisc":[
         {
             "pscode": "IA829ZjXBMSr6dpowexddfr7kHxJv4NdhRt0ugD8bM=",
-            "host": "127.0.0.1:8000",
-            "name": "Localhost",
-            "number": "000000000000"
+            "host": "123.23.4.56",
+            "name": "Domain 1"
         },{
             "pscode": "dFyi3casd34!&0npmiu/KPJxZ+AAOkLmocYCJrOBdI=",
-            "host": "0.0.0.0:8000",
-            "name": "Localhost",
-            "number": "000000000000"
+            "host": "234.567.891",
+            "name": "Domain 2"
         }
     ]
 }
 ```
 
+- Add ```<meta name="app-token" content="<YOUR_PURCHASE_CODE>">``` see index.html for example
+
 - Blend <b>enc.js</b> on your JS script (above jQuery script)
 
 ## Lisence
-```
+
 MIT License
 
 Copyright (c) 2022 Aditya Rizqi
@@ -56,4 +56,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
