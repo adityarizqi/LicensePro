@@ -1,4 +1,6 @@
 /*btoa for enc and atob for decy*/
+var enc = "<YOUR_ENCRYPTED_URL>";
+
 var at = "YXBwLXRva2Vu";
 
 if (
@@ -8,8 +10,6 @@ if (
     'meta[name="' + atob("YXBwLXRva2Vu") + '"]'
   ).content;
 }
-
-var enc = "aHR0cHM6Ly9wcml2YXRlLWRhMjQ0Yi1teWxpc2VuY2UuYXBpYXJ5LW1vY2suY29tL2xpc2VuY2U=";
 
 var valid = false;
 var html = null;

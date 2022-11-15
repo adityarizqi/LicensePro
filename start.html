@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start</title>
+</head>
+<body>
+    <input type="text" id="url" placeholder="url">
+    <button id="button">Encrypt</button>
+    <h5 id="result"></h5>
+    <span>Example URL: <a href="">https://private-22222-license.apiary-mock.com/get-lisence</a></span> <br><br>
+    <span>You can make it on <a href="https://apiary.io">apiary.io</a> for free</span>
+    
+    <script>
+        document.getElementById("button").addEventListener("click", function(){
+            let url = document.getElementById("url").value;
+            let encrypted = btoa(url);
+            document.getElementById("result").innerHTML = encrypted;
+        });
+    </script>
+</body>
+</html>
